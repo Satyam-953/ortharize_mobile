@@ -32,6 +32,17 @@ class AppPages {
       bindings: [RootBinding()],
       participatesInRootNavigator: true,
       preventDuplicates: true,
+      unknownRoute: GetPage(
+        middlewares: [
+          //only enter this route when authed
+          EnsureAuthMiddleware(),
+        ],
+        name: _Paths.profilePage,
+        page: () => const ProfileView(),
+        title: 'Profile',
+        transition: Transition.size,
+        bindings: [ProfileBinding()],
+      ),
       children: [
         GetPage(
           middlewares: [
@@ -39,8 +50,8 @@ class AppPages {
             EnsureNotAuthedMiddleware(),
           ],
           name: _Paths.login,
-          page: () => const LoginView(),
-          bindings: [RootBinding()],
+          page: () => LoginView(),
+          bindings: [LoginBinding()],
         ),
         GetPage(
           preventDuplicates: true,
