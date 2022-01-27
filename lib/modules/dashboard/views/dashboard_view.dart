@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ortharize_mobile/constants/colors.dart';
+import 'package:ortharize_mobile/constants/colors_style.dart';
 import 'package:ortharize_mobile/constants/const.dart';
 
 import '../controllers/dashboard_controller.dart';
@@ -25,8 +25,8 @@ class DashboardView extends GetView<DashboardController> {
               Expanded(
                 child: GridView.builder(
                   padding: const EdgeInsets.symmetric(
-                      horizontal: GlobalConstants.spacinghorizontal2,
-                      vertical: GlobalConstants.spacinghorizontal2),
+                      horizontal: GlobalConstants.spacingvertical2,
+                      vertical: GlobalConstants.spacingvertical2),
 
                   // physics: NeverScrollableScrollPhysics(),
                   scrollDirection: Axis.vertical,
@@ -37,7 +37,7 @@ class DashboardView extends GetView<DashboardController> {
                     //     ? 3
                     //     : 2,
                     crossAxisCount: 2,
-                    crossAxisSpacing: GlobalConstants.spacinghorizontal2,
+                    crossAxisSpacing: GlobalConstants.spacingvertical2,
                     mainAxisSpacing: GlobalConstants.spacingvertical2,
                     // childAspectRatio: (2 / 1),
                     childAspectRatio: (itemWidth / itemHeight),

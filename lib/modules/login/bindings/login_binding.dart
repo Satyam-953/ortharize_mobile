@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:ortharize_mobile/modules/root/controllers/root_controller.dart';
 
 import '../controllers/login_controller.dart';
 
@@ -14,6 +15,7 @@ import '../controllers/login_controller.dart';
 class LoginBinding implements Bindings {
   @override
   void dependencies() {
+    Get.lazyPut<RootController>(() => RootController());
     Get.lazyPut<LoginController>(() => LoginController());
   }
 }

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ortharize_mobile/constants/colors.dart';
+import 'package:ortharize_mobile/constants/colors_style.dart';
 import 'package:ortharize_mobile/constants/const.dart';
+import 'package:ortharize_mobile/services/auth_service.dart';
 import 'package:ortharize_mobile/services/getindexfromPath.dart';
 
-import '../../../../services/auth_service.dart';
 import '../../../../routes/app_pages.dart';
 
 class DrawerWidget extends StatelessWidget {
@@ -45,8 +45,8 @@ class DrawerWidget extends StatelessWidget {
                     const Align(
                         alignment: Alignment.topRight,
                         child: Padding(
-                          padding: EdgeInsets.all(
-                              GlobalConstants.spacinghorizontal1),
+                          padding:
+                              EdgeInsets.all(GlobalConstants.spacingvertical1),
                           child: Icon(
                             Icons.close,
                             size: GlobalConstants.subheadingSize,
@@ -56,7 +56,7 @@ class DrawerWidget extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.only(
                             bottom: GlobalConstants.spacingvertical2,
-                            left: GlobalConstants.spacinghorizontal2),
+                            left: GlobalConstants.spacingvertical2),
                         child: Row(
                           // mainAxisSize: MainAxisSize.max,
                           // crossAxisAlignment: CrossAxisAlignment.center,
@@ -66,7 +66,7 @@ class DrawerWidget extends StatelessWidget {
                               radius: 50,
                             ),
                             SizedBox(
-                              width: GlobalConstants.spacinghorizontal2,
+                              width: GlobalConstants.spacingvertical2,
                             ),
                             Text('Drwaer'),
                           ],
@@ -113,20 +113,21 @@ class DrawerWidget extends StatelessWidget {
                   ),
                 ),
                 onTap: () {
-                  AuthService.to.logout();
-                  myOnTap(page: Routes.login);
+                  // AuthService.to.logout();
+                  // delegate.offAndToNamed('/');
+                  // myOnTap(page: Routes.login);
                 },
               ),
-            if (!AuthService.to.isLoggedInValue)
-              ListTile(
-                title: const Text(
-                  'Login',
-                  style: TextStyle(
-                    color: Colors.blue,
-                  ),
-                ),
-                onTap: () => myOnTap(page: Routes.login),
-              ),
+            // if (!AuthService.to.isLoggedInValue)
+            //   ListTile(
+            //     title: const Text(
+            //       'Login',
+            //       style: TextStyle(
+            //         color: Colors.blue,
+            //       ),
+            //     ),
+            //     onTap: () => myOnTap(page: Routes.login),
+            //   ),
           ],
         ),
       );
