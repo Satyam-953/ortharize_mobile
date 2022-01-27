@@ -19,7 +19,7 @@ void main() {
       getPages: AppPages.routes,
       builder: (context, child) {
         return FutureBuilder<void>(
-          key: const ValueKey('initFuture'),
+          key: const ValueKey('init'),
           future: Get.find<SplashService>().init(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
