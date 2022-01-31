@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/parse_route.dart';
+import 'package:ortharize_mobile/modules/splash/controllers/splash_service.dart';
 
 import '../../services/auth_service.dart';
 import '../../routes/app_pages.dart';
@@ -14,7 +15,7 @@ class EnsureAuthMiddleware extends GetMiddleware {
     print('****redirect*************');
     // print(AuthService.to.isLoggedInValue);
     //if not login
-    if (!AuthService.to.isLoggedInValue) {
+    if (!SplashService.to.isLoggedInValue) {
       // final path = route!.pageSettings?.name as String;
       final newRoute = Routes.LOGIN_THEN('successful');
 
@@ -42,7 +43,8 @@ class EnsureAuthMiddleware extends GetMiddleware {
 class EnsureNotAuthedMiddleware extends GetMiddleware {
   @override
   RouteSettings? redirect(String? route) {
-    if (AuthService.to.isLoggedInValue) {
+    print('Hi Am ensuring Auth');
+    if (SplashService.to.isLoggedInValue) {
       //NEVER navigate to auth screen, when user is already authed
       return null;
 
@@ -63,3 +65,40 @@ class EnsureNotAuthedMiddleware extends GetMiddleware {
   //   return super.redirect(route);
   // }
 }
+
+///////////////////////////////////////////////////////////////
+///
+///
+// import 'package:get/get.dart';
+
+// import '../../services/auth_service.dart';
+// import '../routes/app_pages.dart';
+
+// class EnsureAuthMiddleware extends GetMiddleware {
+//   @override
+//   Future<RouteDecoder?> redirectDelegate(RouteDecoder route) async {
+//     // you can do whatever you want here
+//     // but it's preferable to make this method fast
+//     // await Future.delayed(Duration(milliseconds: 500));
+
+//     if (!AuthService.to.isLoggedInValue) {
+//       final newRoute = Routes.LOGIN_THEN(route.pageSettings!.name);
+//       return RouteDecoder.fromRoute(newRoute);
+//     }
+//     return await super.redirectDelegate(route);
+//   }
+// }
+
+// class EnsureNotAuthedMiddleware extends GetMiddleware {
+//   @override
+//   Future<RouteDecoder?> redirectDelegate(RouteDecoder route) async {
+//     if (AuthService.to.isLoggedInValue) {
+//       //NEVER navigate to auth screen, when user is already authed
+//       return null;
+
+//       //OR redirect user to another screen
+//       //return RouteDecoder.fromRoute(Routes.PROFILE);
+//     }
+//     return await super.redirectDelegate(route);
+//   }
+// }

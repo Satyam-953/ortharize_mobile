@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import 'constants/colors_style.dart';
@@ -10,21 +11,27 @@ import 'routes/app_pages.dart';
 import 'services/auth_service.dart';
 
 void main() {
+  // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+  //     .then((_) {
   runApp(
     GetMaterialApp.router(
+      enableLog: true,
+//logWriterCallback: localLogWriter, //custom log print
+      defaultTransition: Transition.fade,
+      opaqueRoute: Get.isOpaqueRouteDefault,
+      popGesture: Get.isPopGestureEnable,
+      // transitionDuration: Get.defaultDurationTransition,
+      // defaultGlobalState: Get.defaultGlobalState,
+
       theme: ThemeData(
-        textTheme: const TextTheme(
-          headline1: AppColor.HeadingStyle1,
-          headline6: AppColor.HeadingStyle2,
-          bodyText2: AppColor.subHeadingStyle2,
-        ),
-        fontFamily: 'GOTHIC',
-        visualDensity: VisualDensity.comfortable,
-        primaryColorDark: AppColor.black,
-        unselectedWidgetColor: AppColor.skyBlueColor,
+        fontFamily: 'Montserrat',
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        // primaryColorDark: AppColor.iconColor1,
+        primaryColor: AppColor.iconColor1,
+        // unselectedWidgetColor: AppColor.skyBlueColor,
         tabBarTheme: const TabBarTheme(labelColor: AppColor.black),
         appBarTheme: const AppBarTheme(
-          backgroundColor: AppColor.black,
+          backgroundColor: AppColor.headerBackgroundColor,
           // This will be applied to the "back" icon
           iconTheme: IconThemeData(color: AppColor.black),
         ),
@@ -44,7 +51,9 @@ void main() {
       initialBinding: BindingsBuilder(
         () {
           Get.put(SplashService());
-          Get.put(AuthService());
+          // Get.putAsync<SplashService>(() async => await SplashService());
+
+          // Get.put(AuthService());
         },
       ),
       getPages: AppPages.routes,
@@ -70,4 +79,5 @@ void main() {
       // ),
     ),
   );
+  // });
 }

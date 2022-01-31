@@ -4,10 +4,15 @@ import 'package:async/async.dart';
 import 'package:get/get.dart';
 
 class SplashService extends GetxService {
+  static SplashService get to => Get.find<SplashService>();
+
   final welcomeStr = ['GetX', 'Ortharize!'];
   final activeStr = 0.obs;
 
+  /// Mocks a login process
+  final isLoggedIn = false.obs;
   final memo = AsyncMemoizer<void>();
+
   Future<void> init() {
     return memo.runOnce(_initFunction);
   }
@@ -22,8 +27,20 @@ class SplashService extends GetxService {
       (t) => _changeActiveString(),
     );
     //simulate some long running operation
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 6));
     //cancel the timer once we are done
     t.cancel();
+    // isLoggedIn.value = true;
+  }
+
+  bool get isLoggedInValue => isLoggedIn.value;
+
+  void loginSuccess() {
+    isLoggedIn.value = true;
+    print('HEyyyyyyyyyyy');
+  }
+
+  void logout() {
+    isLoggedIn.value = false;
   }
 }
