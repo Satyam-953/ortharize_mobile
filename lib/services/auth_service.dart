@@ -1,17 +1,17 @@
-import 'package:get/get.dart';
+// import 'package:get/get.dart';
 
-class AuthService {
-  static AuthService get to => Get.find();
+// class AuthService extends GetxService {
+//   static AuthService get to => Get.find<AuthService>();
 
-  /// Mocks a login process
-  final isLoggedIn = false.obs;
-  bool get isLoggedInValue => isLoggedIn.value;
+//   /// Mocks a login process
+//   final isLoggedIn = false.obs;
+//   bool get isLoggedInValue => isLoggedIn.value;
 
-  void login() {
-    isLoggedIn.value = true;
-  }
+//   void login() {
+//     isLoggedIn.value = true;
+//   }
 
-  void logout() {
-    isLoggedIn.value = false;
-  }
-}
+//   void logout() {
+//     isLoggedIn.value = false;
+//   }
+// }

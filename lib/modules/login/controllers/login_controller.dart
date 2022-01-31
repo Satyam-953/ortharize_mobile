@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ortharize_mobile/constants/colors_style.dart';
+import 'package:ortharize_mobile/modules/splash/controllers/splash_service.dart';
 
 class LoginController extends GetxController
     with GetSingleTickerProviderStateMixin {
@@ -42,8 +43,15 @@ class LoginController extends GetxController
       ),
     ),
   ];
-
+  RxBool isChecked = false.obs;
   late TabController controller;
+  void changeCheBoxValue() {
+    isChecked.value = !isChecked.value;
+  }
+
+  void loginSuccess() {
+    Get.find<SplashService>().loginSuccess();
+  }
 
   @override
   void onInit() {

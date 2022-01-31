@@ -23,7 +23,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const initial = Routes.home;
+  static const initial = Routes.initial;
 
   static final routes = [
     GetPage(
@@ -38,7 +38,7 @@ class AppPages {
           EnsureAuthMiddleware(),
         ],
         name: _Paths.profilePage,
-        page: () => const ProfileView(),
+        page: () => LoginView(),
         title: 'Profile',
         transition: Transition.size,
         bindings: [ProfileBinding()],
