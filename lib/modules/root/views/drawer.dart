@@ -4,8 +4,8 @@ import 'package:ortharize_mobile/constants/colors_style.dart';
 import 'package:ortharize_mobile/constants/const.dart';
 import 'package:ortharize_mobile/constants/images_path.dart';
 import 'package:ortharize_mobile/modules/splash/controllers/splash_service.dart';
-import 'package:ortharize_mobile/services/auth_service.dart';
-import 'package:ortharize_mobile/services/getindexfromPath.dart';
+
+import 'package:ortharize_mobile/services/getindexfrom_path.dart';
 
 import '../../../../routes/app_pages.dart';
 

@@ -13,8 +13,6 @@ class HomeView extends GetView<HomeController> {
       builder: (context, delegate, currentRoute) {
         //This router outlet handles the appbar and the bottom navigation bar
         // final currentLocation = currentRoute?.location ?? Routes.profilePage;
-        // print('888888');
-        // print(currentLocation);
         // var currentIndex = 0;
         // if (currentLocation.startsWith(Routes.products) == true) {
         //   currentIndex = 2;

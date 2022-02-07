@@ -9,11 +9,9 @@ int getDrwaerItemIndex({required String path}) {
     case Routes.profilePage:
       return 2;
     case Routes.products:
-      return 0;
+      return 3;
     case Routes.settings:
-      return 0;
-    case Routes.login:
-      return 0;
+      return 4;
 
     default:
       return 0;

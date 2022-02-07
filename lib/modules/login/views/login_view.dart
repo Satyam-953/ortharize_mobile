@@ -5,6 +5,7 @@ import 'package:ortharize_mobile/constants/const.dart';
 import 'package:ortharize_mobile/modules/login/controllers/login_controller.dart';
 // import 'package:ortharize_mobile/modules/root/controllers/root_controller.dart';
 import 'package:ortharize_mobile/modules/splash/controllers/splash_service.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 // import '../../../../services/auth_service.dart';
 
@@ -26,7 +27,7 @@ class LoginView extends GetView<LoginController> {
         color: AppColor.iconColor1,
         border: Border.all(color: AppColor.iconColor1, width: 1),
       ),
-      child: Icon(
+      child: const Icon(
         Icons.check,
         color: AppColor.white,
         // controller.isChecked.value ? AppColor.iconColor1 : AppColor.white,
@@ -113,15 +114,6 @@ class LoginView extends GetView<LoginController> {
                 inputFormatters: [AppColor.nameFormatter], // Only
 
                 decoration: const InputDecoration(
-                  errorStyle: AppColor.errorFormFieldStyle,
-                  fillColor: AppColor.white,
-                  focusedBorder: AppColor.textFormInputBorder,
-                  errorBorder: AppColor.textFormInputBorder,
-                  focusedErrorBorder: AppColor.textFormInputBorder,
-                  enabledBorder: AppColor.textFormInputBorder,
-                  filled: true,
-                  labelStyle: AppColor.bodyText2,
-                  // labelText: 'First Name',
                   hintText: 'Enter email here',
                 ),
                 onFieldSubmitted: (value) => _formKey.currentState!.validate(),
@@ -136,16 +128,6 @@ class LoginView extends GetView<LoginController> {
                 validator: GlobalConstants.myValidator,
                 controller: _passController,
                 decoration: const InputDecoration(
-                  errorStyle: AppColor.errorFormFieldStyle,
-                  fillColor: AppColor.white,
-                  focusedBorder: AppColor.textFormInputBorder,
-                  errorBorder: AppColor.textFormInputBorder,
-                  focusedErrorBorder: AppColor.textFormInputBorder,
-                  enabledBorder: AppColor.textFormInputBorder,
-                  filled: true,
-                  // labelStyle: AppColor.subHeadingStyle1,
-                  // border: OutlineInputBorder(),
-                  // labelText: 'Last Name',
                   hintText: 'Enter Password',
                 ),
                 onFieldSubmitted: (value) => _formKey.currentState!.validate(),
@@ -153,7 +135,14 @@ class LoginView extends GetView<LoginController> {
               ),
               checkBoxRow(),
               AppColor.size2,
-              Center(child: loginButton())
+              Center(child: loginButton()),
+              Container(
+                height: 100,
+                width: 344,
+                child: const WebView(
+                  initialUrl: 'https://flutter.dev',
+                ),
+              )
             ],
           ),
         ),
@@ -163,10 +152,12 @@ class LoginView extends GetView<LoginController> {
 
   Widget loginButton() {
     return InkWell(
-      onTap: () {
+      onTap: () async {
         if (_formKey.currentState!.validate()) {
           // SplashService.to.login();
-          Get.find<SplashService>().isLoggedIn.value = true;
+          // Get.find<SplashService>().isLoggedIn.value = true;
+          bool _validate = await controller.loginSuccess();
+          debugPrint('$_validate');
           // controller.loggedIn();
         }
       },

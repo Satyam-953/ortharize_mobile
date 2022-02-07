@@ -34,8 +34,11 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
 #  cupertino_icons: ^1.0.2
-  get: ^4.6.1
-  shared_preferences: ^2.0.12
+  get: ^4.6.1 #Getx
+  shared_preferences: ^2.0.12 
+  g_recaptcha_v3: ^0.0.4 #to get the captcha needed for login ( only work on web so have imported webview flutter in bottom
+  flutter_dotenv: ^5.0.2 # to store critical info such as secret and site keys
+  webview_flutter: ^3.0.0 #to get the g_recaptcha to work on mobile
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -61,6 +64,7 @@ flutter:
     # - assets/
     - fonts/
     - images/
+    - .env
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
