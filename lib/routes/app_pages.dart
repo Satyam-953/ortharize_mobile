@@ -39,9 +39,9 @@ class AppPages {
         ],
         name: _Paths.profilePage,
         page: () => LoginView(),
-        title: 'Profile',
+        title: 'Login',
         transition: Transition.size,
-        bindings: [ProfileBinding()],
+        bindings: [LoginBinding()],
       ),
       children: [
         GetPage(

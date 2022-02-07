@@ -12,14 +12,12 @@ class EnsureAuthMiddleware extends GetMiddleware {
     // you can do whatever you want here
     // but it's preferable to make this method fast
     // await Future.delayed(Duration(milliseconds: 500));
-    print('****redirect*************');
-    // print(AuthService.to.isLoggedInValue);
+    debugPrint('****redirect*************');
     //if not login
     if (!SplashService.to.isLoggedInValue) {
       // final path = route!.pageSettings?.name as String;
       final newRoute = Routes.LOGIN_THEN('successful');
 
-      print('***$newRoute**************');
       return RouteSettings(name: newRoute);
     }
     return super.redirect(route);
@@ -43,7 +41,7 @@ class EnsureAuthMiddleware extends GetMiddleware {
 class EnsureNotAuthedMiddleware extends GetMiddleware {
   @override
   RouteSettings? redirect(String? route) {
-    print('Hi Am ensuring Auth');
+    debugPrint('EnsureNotAuth');
     if (SplashService.to.isLoggedInValue) {
       //NEVER navigate to auth screen, when user is already authed
       return null;

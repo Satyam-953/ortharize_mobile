@@ -53,7 +53,6 @@ abstract class AppColor {
   static const subtitle2 =
       TextStyle(fontWeight: FontWeight.w500, fontSize: 18.0);
   static const bodyText2 = TextStyle(fontSize: 14.0);
-
   static const TextStyle errorFormFieldStyle = TextStyle(
       color: AppColor.iconColor1, fontSize: GlobalConstants.textSize4);
 

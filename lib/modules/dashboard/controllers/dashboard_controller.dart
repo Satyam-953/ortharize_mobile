@@ -20,14 +20,14 @@ class DashboardController extends GetxController {
     ImagePath.countryrestrictions1
   ];
 
-  @override
-  void onReady() {
-    super.onReady();
-    // Timer.periodic(
-    //   const Duration(seconds: 1),
-    //   (timer) {
-    //     now.value = DateTime.now();
-    //   },
-    // );
-  }
+  // @override
+  // void onReady() {
+  //   super.onReady();
+  //   // Timer.periodic(
+  //   //   const Duration(seconds: 1),
+  //   //   (timer) {
+  //   //     now.value = DateTime.now();
+  //   //   },
+  //   // );
+  // }
 }

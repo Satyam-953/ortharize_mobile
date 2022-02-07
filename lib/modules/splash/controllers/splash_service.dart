@@ -27,7 +27,7 @@ class SplashService extends GetxService {
       (t) => _changeActiveString(),
     );
     //simulate some long running operation
-    await Future.delayed(const Duration(seconds: 6));
+    await Future.delayed(const Duration(seconds: 3));
     //cancel the timer once we are done
     t.cancel();
     // isLoggedIn.value = true;
@@ -37,7 +37,6 @@ class SplashService extends GetxService {
 
   void loginSuccess() {
     isLoggedIn.value = true;
-    print('HEyyyyyyyyyyy');
   }
 
   void logout() {
