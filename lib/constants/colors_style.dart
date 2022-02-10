@@ -13,7 +13,7 @@ abstract class AppColor {
   static const lightMetalColor4 = Color(0xFFcccccc); //0xFFF2F2F7);
   static const skyBlueColor = Color(0xFF09c7e2);
   static final skyBlueColorOp = const Color(0xFF09c7e2).withOpacity(3.0);
-  static const skyBlueColor1 = Color(0xFF6d82ec);
+  static const skyBlueColor1 = Color.fromARGB(255, 134, 209, 238);
   static const bluecolor = Color(0xFF2d4ada);
 
   static const tileshadow = [
@@ -50,8 +50,8 @@ abstract class AppColor {
       fontSize: 22.0, fontWeight: FontWeight.w600, fontStyle: FontStyle.normal);
   static const subtitle1 =
       TextStyle(fontWeight: FontWeight.w600, fontSize: 20.0);
-  static const subtitle2 =
-      TextStyle(fontWeight: FontWeight.w500, fontSize: 18.0);
+  static const subtitle2 = TextStyle(
+      fontWeight: FontWeight.w400, fontSize: 20.0, color: Colors.grey);
   static const bodyText2 = TextStyle(fontSize: 14.0);
   static const TextStyle errorFormFieldStyle = TextStyle(
       color: AppColor.iconColor1, fontSize: GlobalConstants.textSize4);

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ortharize_mobile/modules/root/views/drawercontroller.dar/drawer_controller.dart';
 import 'package:ortharize_mobile/modules/splash/controllers/splash_service.dart';
 import '../../../../routes/app_pages.dart';
 import 'drawer.dart';
@@ -17,7 +18,14 @@ class RootView extends GetView<SplashService> {
         return Scaffold(body: Obx(() {
           return controller.isLoggedIn.value
               ? Scaffold(
-                  drawer: const DrawerWidget(),
+                  onDrawerChanged: (_) {
+                    debugPrint('$_');
+                    if (_) Get.put(MyDrawerController());
+                    // _
+                    //     ? Get.put(MyDrawerController())
+                    //     : Get.find<MyDrawerController>().ondis();
+                  },
+                  drawer: DrawerWidget(),
                   appBar: AppBar(
                     title: Text(title),
                     centerTitle: true,

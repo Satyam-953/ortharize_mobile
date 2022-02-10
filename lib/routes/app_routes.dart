@@ -11,7 +11,7 @@ abstract class Routes {
   static const profilePage = _Paths.home + _Paths.profilePage;
   static const settings = _Paths.settings;
   static const dashboard = _Paths.home + _Paths.dashboard;
-  static const products = _Paths.home + _Paths.products;
+  static const trips = _Paths.home + _Paths.trips;
   // static const profilePage = _Paths.profilePage;
   // static const settings = _Paths.settings;
   // static const dashboard = _Paths.dashboard;
@@ -20,13 +20,13 @@ abstract class Routes {
   Routes._();
   static String LOGIN_THEN(String afterSuccessfulLogin) =>
       '$login?then=${Uri.encodeQueryComponent(afterSuccessfulLogin)}';
-  static String productDetails(String productId) => '$products/$productId';
+  static String productDetails(String productId) => '$trips/$productId';
 }
 
 abstract class _Paths {
   static const initial = '/';
   static const home = '/home';
-  static const products = '/products';
+  static const trips = '/trips';
   static const profilePage = '/profile';
   static const settings = '/settings';
   static const productDetails = '/:productId';

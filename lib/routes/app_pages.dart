@@ -9,8 +9,8 @@ import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/product_details/bindings/product_details_binding.dart';
 import '../modules/product_details/views/product_details_view.dart';
-import '../modules/products/bindings/products_binding.dart';
-import '../modules/products/views/products_view.dart';
+import '../modules/trips/bindings/trips_binding.dart';
+import '../modules/trips/views/trips_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/root/bindings/root_binding.dart';
@@ -81,7 +81,7 @@ class AppPages {
               bindings: [ProfileBinding()],
             ),
             GetPage(
-              name: _Paths.products,
+              name: _Paths.trips,
               page: () => const ProductsView(),
               title: 'Products',
               transition: Transition.zoom,

@@ -12,8 +12,11 @@ ThemeData getTheme() {
     appBarTheme: const AppBarTheme(
       backgroundColor: AppColor.headerBackgroundColor,
       // This will be applied to the "back" icon
-      iconTheme: IconThemeData(color: AppColor.black),
+      iconTheme: IconThemeData(
+        color: AppColor.black,
+      ),
     ),
+    iconTheme: const IconThemeData(size: 30.0, color: Colors.grey),
     inputDecorationTheme: const InputDecorationTheme(
       errorStyle: AppColor.errorFormFieldStyle,
       fillColor: AppColor.white,

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../routes/app_pages.dart';
-import '../controllers/products_controller.dart';
+import '../controllers/trips_controller.dart';
 
-class ProductsView extends GetView<ProductsController> {
+class ProductsView extends GetView<TripsController> {
   const ProductsView({Key? key}) : super(key: key);
 
   @override
