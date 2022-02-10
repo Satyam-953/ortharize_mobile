@@ -1,21 +1,21 @@
 class GlobalConstants {
-  static const captchaSecretKey='6Lf8UwcaAAAAAFaEIiKUx4dC0uYgH0AAF2UPCtnW';
-  static const captchaSiteKey='6Lf8UwcaAAAAACW9h4I-xxBcqa7m1bolYd8vAu_C';
+  static const captchaSecretKey = '6Lf8UwcaAAAAAFaEIiKUx4dC0uYgH0AAF2UPCtnW';
+  static const captchaSiteKey = '6Lf8UwcaAAAAACW9h4I-xxBcqa7m1bolYd8vAu_C';
 
   ////////////////////////////////////////////////////
-  static const double elevation = 4.0;
-  static const double spacingvertical1 = 5.0;
-  static const double spacingvertical2 = 15.0;
-  static const double spacing3 = 25.0;
-  static const double radius1 = 5.0;
-  static const double radius2 = 45.0;
-  static const double radius3 = 60.0;
   static const double headingSize = 64.0;
+  static const double radius3 = 60.0;
+  static const double radius2 = 45.0;
   static const double subheadingSize = 40.0;
+  static const double spacing3 = 25.0;
   static const double textSize1 = 20.0;
   static const double textSize2 = 16.0;
+  static const double spacingvertical2 = 15.0;
   static const double textSize3 = 14.0;
   static const double textSize4 = 12.0;
+  static const double spacingvertical1 = 5.0;
+  static const double radius1 = 5.0;
+  static const double elevation = 4.0;
 
   static String? myValidator(String? value) {
     if (value == '') {

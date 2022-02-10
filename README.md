@@ -1,5 +1,6 @@
 # ortharize_mobile
 
+A new Flutter project with sound null safity and getx.
 A Project for Employee in Ortharize
 
 ## Getting Started

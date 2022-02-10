@@ -8,9 +8,10 @@ import 'package:ortharize_mobile/modules/splash/controllers/splash_service.dart'
 import 'package:ortharize_mobile/services/getindexfrom_path.dart';
 
 import '../../../../routes/app_pages.dart';
+import 'drawercontroller.dar/drawer_controller.dart';
 
-class DrawerWidget extends StatelessWidget {
-  const DrawerWidget({
+class DrawerWidget extends GetView<MyDrawerController> {
+  DrawerWidget({
     Key? key,
   }) : super(key: key);
 
@@ -85,7 +86,7 @@ class DrawerWidget extends StatelessWidget {
             ListTile(
               leading: Icon(
                 Icons.home,
-                color: currentIndex == 0 ? AppColor.iconColor1 : AppColor.black,
+                color: currentIndex == 0 ? AppColor.iconColor1 : Colors.grey,
               ),
               title: const Text(
                 'Home',
@@ -93,23 +94,47 @@ class DrawerWidget extends StatelessWidget {
               ),
               onTap: () => myOnTap(page: Routes.home),
             ),
-
+            const Divider(height: 3),
             // _Paths.home + _Paths.products
-            ListTile(
-              leading: const Icon(Icons.account_box_rounded),
-              title: const Text('Trip'),
-              onTap: () => myOnTap(page: Routes.products),
-            ),
-            ListTile(
-              title: const Text('Vaccination'),
-              onTap: () => myOnTap(page: Routes.settings),
-            ),
-            // _Paths.home + Routes.profilePage
-            ListTile(
-              leading: const Icon(Icons.account_box_rounded),
-              title: const Text('Profile'),
-              onTap: () => myOnTap(page: Routes.profilePage),
-            ),
+            for (int i = 0; i < controller.lileTitle.length; i++)
+              ListTile(
+                leading: Image.asset(
+                  currentIndex == i
+                      ? controller.lileTitleIcons1[i]
+                      : controller.lileTitleIcons2[i],
+                  height: GlobalConstants.spacing3,
+                ),
+                title: Text(
+                  controller.lileTitle[i],
+                  style: AppColor.subtitle2,
+                ),
+                onTap: () => myOnTap(page: controller.lileTitleRoutes[i]),
+              ),
+
+            // ListTile(
+            //   leading: Image.asset(
+            //     currentIndex == 1 ? ImagePath.trip1 : ImagePath.trip2,
+            //     height: GlobalConstants.spacing3,
+            //   ),
+            //   title: const Text(
+            //     'Trip',
+            //     style: AppColor.subtitle2,
+            //   ),
+            //   onTap: () => myOnTap(page: Routes.trips),
+            // ),
+            // const Divider(height: 3),
+            // ListTile(
+            //   title: const Text('Vaccination'),
+            //   onTap: () => myOnTap(page: Routes.settings),
+            // ),
+            // const Divider(height: 3),
+            // // _Paths.home + Routes.profilePage
+            // ListTile(
+            //   leading: const Icon(Icons.account_box_rounded),
+            //   title: const Text('Profile'),
+            //   onTap: () => myOnTap(page: Routes.profilePage),
+            // ),
+            // const Divider(height: 3),
 
             if (SplashService.to.isLoggedInValue)
               ListTile(
@@ -120,6 +145,7 @@ class DrawerWidget extends StatelessWidget {
                   ),
                 ),
                 onTap: () {
+                  Get.find<SplashService>().logout();
                   // AuthService.to.logout();
                   // delegate.offAndToNamed('/');
                   // myOnTap(page: Routes.login);

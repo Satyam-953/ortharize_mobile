@@ -8,7 +8,7 @@ int getDrwaerItemIndex({required String path}) {
       return 0;
     case Routes.profilePage:
       return 2;
-    case Routes.products:
+    case Routes.trips:
       return 3;
     case Routes.settings:
       return 4;

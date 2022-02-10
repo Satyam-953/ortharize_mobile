@@ -5,7 +5,7 @@ import 'package:ortharize_mobile/constants/const.dart';
 import 'package:ortharize_mobile/modules/login/controllers/login_controller.dart';
 // import 'package:ortharize_mobile/modules/root/controllers/root_controller.dart';
 import 'package:ortharize_mobile/modules/splash/controllers/splash_service.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+// import 'package:webview_flutter/webview_flutter.dart';
 
 // import '../../../../services/auth_service.dart';
 
@@ -93,7 +93,7 @@ class LoginView extends GetView<LoginController> {
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Container(
-        color: AppColor.skyBlueColor,
+        color: AppColor.skyBlueColor1,
         margin: const EdgeInsets.symmetric(
             vertical: GlobalConstants.spacingvertical2),
         child: Form(
@@ -116,7 +116,16 @@ class LoginView extends GetView<LoginController> {
                 decoration: const InputDecoration(
                   hintText: 'Enter email here',
                 ),
-                onFieldSubmitted: (value) => _formKey.currentState!.validate(),
+                onFieldSubmitted: (value) async {
+                  if (_formKey.currentState!.validate()) {
+                    // SplashService.to.login();
+                    // Get.find<SplashService>().isLoggedIn.value = true;
+                    // bool _validate =
+                    await controller.loginSuccess();
+                    // debugPrint('$_validate');
+                    // controller.loggedIn();
+                  }
+                },
               ),
               AppColor.size2,
               const Text(
@@ -136,13 +145,13 @@ class LoginView extends GetView<LoginController> {
               checkBoxRow(),
               AppColor.size2,
               Center(child: loginButton()),
-              Container(
-                height: 100,
-                width: 344,
-                child: const WebView(
-                  initialUrl: 'https://flutter.dev',
-                ),
-              )
+              // Container(
+              //   height: 100,
+              //   width: 344,
+              //   child: const WebView(
+              //     initialUrl: 'https://flutter.dev',
+              //   ),
+              // )
             ],
           ),
         ),
@@ -156,8 +165,9 @@ class LoginView extends GetView<LoginController> {
         if (_formKey.currentState!.validate()) {
           // SplashService.to.login();
           // Get.find<SplashService>().isLoggedIn.value = true;
-          bool _validate = await controller.loginSuccess();
-          debugPrint('$_validate');
+          // bool _validate =
+          await controller.loginSuccess();
+          // debugPrint('$_validate');
           // controller.loggedIn();
         }
       },
@@ -190,13 +200,13 @@ class LoginView extends GetView<LoginController> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       // backgroundColor: AppColor.skyBlueColor,
-      backgroundColor: AppColor.skyBlueColor,
+      backgroundColor: AppColor.skyBlueColor1,
       appBar: AppBar(
         centerTitle: true,
         // shadowColor: AppColor.white,
         // foregroundColor: AppColor.white,
         elevation: 0,
-        backgroundColor: AppColor.skyBlueColor,
+        backgroundColor: AppColor.skyBlueColor1,
         toolbarHeight: height * 0.21,
         bottom: TabBar(
           padding: const EdgeInsets.symmetric(

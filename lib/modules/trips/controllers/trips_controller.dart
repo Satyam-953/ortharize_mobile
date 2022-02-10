@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 
 import '../../../../models/demo_product.dart';
 
-class ProductsController extends GetxController {
+class TripsController extends GetxController {
   final products = <DemoProduct>[].obs;
 
   void loadDemoProductsFromSomeWhere() {

@@ -1,5 +1,5 @@
 name: ortharize_mobile
-description: A Project for Employee in Ortharize
+description: A new Flutter project with sound null safity and getx.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.15.1 <3.0.0"
+  sdk: ">=2.16.0 <3.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -33,12 +33,13 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-#  cupertino_icons: ^1.0.2
+  # cupertino_icons: ^1.0.2
   get: ^4.6.1 #Getx
-  shared_preferences: ^2.0.12 
-  g_recaptcha_v3: ^0.0.4 #to get the captcha needed for login ( only work on web so have imported webview flutter in bottom
+  shared_preferences: ^2.0.13 
+  # g_recaptcha_v3: ^0.0.4 #to get the captcha needed for login ( only work on web so have imported webview flutter in bottom
   flutter_dotenv: ^5.0.2 # to store critical info such as secret and site keys
-  webview_flutter: ^3.0.0 #to get the g_recaptcha to work on mobile
+  # webview_flutter: ^3.0.0 #to get the g_recaptcha to work on mobile
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -60,6 +61,8 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
   assets:
     # - assets/
     - fonts/
