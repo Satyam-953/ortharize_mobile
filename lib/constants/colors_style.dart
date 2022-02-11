@@ -4,8 +4,7 @@ import 'package:flutter/services.dart';
 import 'const.dart';
 
 abstract class AppColor {
-  static const white = Color(0xFFFFFFFF);
-  static const black = Color(0xFF000000);
+  // static const black = Color(0xFF000000);
   static const iconColor1 = Color(0xFFe83437);
   static const headerBackgroundColor = Color(0xFFffeae9);
   static const textFieldIconColor = Color(0xFF2b4ad9);
@@ -52,12 +51,19 @@ abstract class AppColor {
       TextStyle(fontWeight: FontWeight.w600, fontSize: 20.0);
   static const subtitle2 = TextStyle(
       fontWeight: FontWeight.w400, fontSize: 20.0, color: Colors.grey);
-  static const bodyText2 = TextStyle(fontSize: 14.0);
+  static const subtitle3 = TextStyle(
+      fontWeight: FontWeight.w600, fontSize: 16.0, color: Colors.black);
+
+  static const bodyText1 = TextStyle(
+      fontWeight: FontWeight.w500, fontSize: 12.0, color: Colors.black54);
+  static const bodyTextBold1 = TextStyle(
+      fontWeight: FontWeight.w600, fontSize: 12.0, color: Colors.black);
+
   static const TextStyle errorFormFieldStyle = TextStyle(
       color: AppColor.iconColor1, fontSize: GlobalConstants.textSize4);
 
   static const TextStyle whiteTextStyle1 = TextStyle(
-      color: AppColor.white,
+      color: Colors.white,
       fontWeight: FontWeight.w500,
       fontSize: GlobalConstants.textSize2);
 

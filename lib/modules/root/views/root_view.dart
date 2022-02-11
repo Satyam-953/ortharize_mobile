@@ -25,10 +25,9 @@ class RootView extends GetView<SplashService> {
                     //     ? Get.put(MyDrawerController())
                     //     : Get.find<MyDrawerController>().ondis();
                   },
-                  drawer: DrawerWidget(),
+                  drawer: const DrawerWidget(),
                   appBar: AppBar(
-                    title: Text(title),
-                    centerTitle: true,
+
                   ),
                   body: GetRouterOutlet(
                     initialRoute: Routes.home,

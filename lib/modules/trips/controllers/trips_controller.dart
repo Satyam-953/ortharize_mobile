@@ -1,25 +1,36 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../models/demo_product.dart';
 
-class TripsController extends GetxController {
-  final products = <DemoProduct>[].obs;
+class TripsController extends GetxController with GetSingleTickerProviderStateMixin {
+ // final products = <DemoProduct>[].obs;
+  late TabController controller;
+  final List<Tab> tripsTabs=const[
+    Tab(
+      // text: 'MOBILE',
+      text: 'UPCOMING TRIPS',
+    ),
+    Tab(
+      // text: 'OTP',
+      text: 'ALL TRIPS',
+    ),
+  ];
 
-  void loadDemoProductsFromSomeWhere() {
-    products.add(
-      DemoProduct(
-        name: 'Product added on: ${DateTime.now().toString()}',
-        id: DateTime.now().millisecondsSinceEpoch.toString(),
-      ),
-    );
+  @override
+  void onInit() {
+    controller = TabController(vsync: this, length: tripsTabs.length);
+
+    super.onInit();
+    //  loadDemoProductsFromSomeWhere();
   }
-
   @override
   void onReady() {
     super.onReady();
-    loadDemoProductsFromSomeWhere();
+    controller.addListener((){
+      debugPrint('my index is'+ controller.index.toString());
+    });
+    //  loadDemoProductsFromSomeWhere();
   }
-
   @override
   void onClose() {
     Get.printInfo(info: 'Products: onClose');

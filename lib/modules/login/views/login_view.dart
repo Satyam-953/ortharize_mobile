@@ -3,11 +3,6 @@ import 'package:get/get.dart';
 import 'package:ortharize_mobile/constants/colors_style.dart';
 import 'package:ortharize_mobile/constants/const.dart';
 import 'package:ortharize_mobile/modules/login/controllers/login_controller.dart';
-// import 'package:ortharize_mobile/modules/root/controllers/root_controller.dart';
-import 'package:ortharize_mobile/modules/splash/controllers/splash_service.dart';
-// import 'package:webview_flutter/webview_flutter.dart';
-
-// import '../../../../services/auth_service.dart';
 
 class LoginView extends GetView<LoginController> {
   LoginView({Key? key}) : super(key: key);
@@ -29,7 +24,7 @@ class LoginView extends GetView<LoginController> {
       ),
       child: const Icon(
         Icons.check,
-        color: AppColor.white,
+        color: Colors.white,
         // controller.isChecked.value ? AppColor.iconColor1 : AppColor.white,
         size: GlobalConstants.textSize2,
       ),
@@ -62,17 +57,14 @@ class LoginView extends GetView<LoginController> {
                     //       ListTileControlAffinity.leading, //  <-- leading Checkbox
                     // ),
                     Container(
+                      color: Colors.white,
                       height: GlobalConstants.textSize2,
                       width: GlobalConstants.textSize2,
-                      decoration: BoxDecoration(
-                        color: AppColor.white,
-                        border: Border.all(color: AppColor.white),
-                      ),
                       child: Icon(
                         Icons.check,
                         color: controller.isChecked.value
                             ? AppColor.iconColor1
-                            : AppColor.white,
+                            : Colors.white,
                         size: GlobalConstants.textSize3,
                       ),
                     ),
@@ -105,7 +97,7 @@ class LoginView extends GetView<LoginController> {
               AppColor.size2,
               const Text(
                 'Email',
-                style: AppColor.subtitle2,
+                //style: AppColor.subtitle2,
               ),
               AppColor.size1,
               TextFormField(
@@ -130,7 +122,7 @@ class LoginView extends GetView<LoginController> {
               AppColor.size2,
               const Text(
                 'Password',
-                style: AppColor.subtitle2,
+                //    style: AppColor.subtitle2,
               ),
               AppColor.size1,
               TextFormField(
@@ -139,7 +131,16 @@ class LoginView extends GetView<LoginController> {
                 decoration: const InputDecoration(
                   hintText: 'Enter Password',
                 ),
-                onFieldSubmitted: (value) => _formKey.currentState!.validate(),
+                onFieldSubmitted: (value) async {
+                  if (_formKey.currentState!.validate()) {
+                    // SplashService.to.login();
+                    // Get.find<SplashService>().isLoggedIn.value = true;
+                    // bool _validate =
+                    await controller.loginSuccess();
+                    // debugPrint('$_validate');
+                    // controller.loggedIn();
+                  }
+                },
                 // inputFormatters: [], // Only
               ),
               checkBoxRow(),

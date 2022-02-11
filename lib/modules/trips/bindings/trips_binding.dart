@@ -12,7 +12,7 @@ import '../controllers/trips_controller.dart';
 //     ];
 //   }
 // }
-class ProductsBinding implements Bindings {
+class TripsBinding implements Bindings {
   @override
   void dependencies() {
     Get.lazyPut<TripsController>(() => TripsController());

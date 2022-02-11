@@ -17,7 +17,8 @@ import '../modules/root/bindings/root_binding.dart';
 import '../modules/root/views/root_view.dart';
 import '../modules/settings/bindings/settings_binding.dart';
 import '../modules/settings/views/settings_view.dart';
-
+import '../modules/vaccination/bindings/vaccination_binding.dart';
+import '../modules/vaccination/views/vaccination_view.dart';
 part 'app_routes.dart';
 
 class AppPages {
@@ -62,6 +63,34 @@ class AppPages {
           ],
           title: null,
           children: [
+            //trips
+            GetPage(
+              name: _Paths.trips,
+              page: () => const TripsView(),
+              title: 'Trips',
+              transition: Transition.zoom,
+              bindings: [TripsBinding()],
+              // children: [
+              //   GetPage(
+              //     name: _Paths.productDetails,
+              //     page: () => const ProductDetailsView(),
+              //     bindings: [ProductDetailsBinding()],
+              //     middlewares: [
+              //       //only enter this route when authed
+              //       EnsureAuthMiddleware(),
+              //     ],
+              //   ),
+              // ],
+            ),
+            //vaccination
+            GetPage(
+              name: _Paths.vaccination,
+              page: () => const VaccinationView(),
+              bindings: [
+                VaccinationBinding(),
+              ],
+            ),
+            //profile
             GetPage(
               name: _Paths.dashboard,
               page: () => const DashboardView(),
@@ -69,6 +98,7 @@ class AppPages {
                 DashboardBinding(),
               ],
             ),
+            //settings
             GetPage(
               middlewares: [
                 //only enter this route when authed
@@ -79,24 +109,6 @@ class AppPages {
               title: 'Profile',
               transition: Transition.size,
               bindings: [ProfileBinding()],
-            ),
-            GetPage(
-              name: _Paths.trips,
-              page: () => const ProductsView(),
-              title: 'Products',
-              transition: Transition.zoom,
-              bindings: [ProductsBinding()],
-              children: [
-                GetPage(
-                  name: _Paths.productDetails,
-                  page: () => const ProductDetailsView(),
-                  bindings: [ProductDetailsBinding()],
-                  middlewares: [
-                    //only enter this route when authed
-                    EnsureAuthMiddleware(),
-                  ],
-                ),
-              ],
             ),
           ],
         ),
