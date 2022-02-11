@@ -6,12 +6,14 @@ int getDrwaerItemIndex({required String path}) {
       return 0;
     case Routes.home:
       return 0;
-    case Routes.profilePage:
-      return 2;
     case Routes.trips:
-      return 3;
+      return 1;
+    case Routes.vaccination:
+      return 2;
+    case Routes.profilePage:
+      return 8;
     case Routes.settings:
-      return 4;
+      return 9;
 
     default:
       return 0;

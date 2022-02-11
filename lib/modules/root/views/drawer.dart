@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:ortharize_mobile/constants/colors_style.dart';
 import 'package:ortharize_mobile/constants/const.dart';
 import 'package:ortharize_mobile/constants/images_path.dart';
-import 'package:ortharize_mobile/modules/splash/controllers/splash_service.dart';
 
 import 'package:ortharize_mobile/services/getindexfrom_path.dart';
 
@@ -11,7 +10,7 @@ import '../../../../routes/app_pages.dart';
 import 'drawercontroller.dar/drawer_controller.dart';
 
 class DrawerWidget extends GetView<MyDrawerController> {
-  DrawerWidget({
+  const DrawerWidget({
     Key? key,
   }) : super(key: key);
 
@@ -29,6 +28,7 @@ class DrawerWidget extends GetView<MyDrawerController> {
       //   currentIndex = 1;
       // }
       void myOnTap({required String page}) {
+        debugPrint(page);
         delegate.toNamed(page);
         //to close the drawer
 
@@ -96,7 +96,7 @@ class DrawerWidget extends GetView<MyDrawerController> {
             ),
             const Divider(height: 3),
             // _Paths.home + _Paths.products
-            for (int i = 0; i < controller.lileTitle.length; i++)
+            for (int i = 1; i < controller.lileTitle.length; i++)
               ListTile(
                 leading: Image.asset(
                   currentIndex == i
@@ -108,7 +108,11 @@ class DrawerWidget extends GetView<MyDrawerController> {
                   controller.lileTitle[i],
                   style: AppColor.subtitle2,
                 ),
-                onTap: () => myOnTap(page: controller.lileTitleRoutes[i]),
+                onTap: () {
+                  // debugPrint('$currentIndex ${controller.lileTitleIcons2.length}');
+
+                  myOnTap(page: controller.lileTitleRoutes[i]);
+                },
               ),
 
             // ListTile(
@@ -136,22 +140,22 @@ class DrawerWidget extends GetView<MyDrawerController> {
             // ),
             // const Divider(height: 3),
 
-            if (SplashService.to.isLoggedInValue)
-              ListTile(
-                title: const Text(
-                  'Logout',
-                  style: TextStyle(
-                    color: Colors.red,
-                  ),
-                ),
-                onTap: () {
-                  Get.find<SplashService>().logout();
-                  // AuthService.to.logout();
-                  // delegate.offAndToNamed('/');
-                  // myOnTap(page: Routes.login);
-                },
-              ),
-            // if (!AuthService.to.isLoggedInValue)
+            // if (SplashService.to.isLoggedInValue)
+            //   ListTile(
+            //     title: const Text(
+            //       'Logout',
+            //       style: TextStyle(
+            //         color: Colors.red,
+            //       ),
+            //     ),
+            //     onTap: () {
+            //       Get.find<SplashService>().logout();
+            //       // AuthService.to.logout();
+            //       // delegate.offAndToNamed('/');
+            //       // myOnTap(page: Routes.login);
+            //     },
+            //   ),
+            // // if (!AuthService.to.isLoggedInValue)
             //   ListTile(
             //     title: const Text(
             //       'Login',

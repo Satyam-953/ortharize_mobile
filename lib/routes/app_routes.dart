@@ -9,14 +9,17 @@ abstract class Routes {
   static const home = _Paths.home;
 
   static const profilePage = _Paths.home + _Paths.profilePage;
-  static const settings = _Paths.settings;
   static const dashboard = _Paths.home + _Paths.dashboard;
+  static const login = _Paths.login;
   static const trips = _Paths.home + _Paths.trips;
+  static const vaccination = _Paths.home + _Paths.vaccination;
+  static const settings = _Paths.settings;
+
   // static const profilePage = _Paths.profilePage;
   // static const settings = _Paths.settings;
   // static const dashboard = _Paths.dashboard;
   // static const products = _Paths.products;
-  static const login = _Paths.login;
+
   Routes._();
   static String LOGIN_THEN(String afterSuccessfulLogin) =>
       '$login?then=${Uri.encodeQueryComponent(afterSuccessfulLogin)}';
@@ -27,6 +30,7 @@ abstract class _Paths {
   static const initial = '/';
   static const home = '/home';
   static const trips = '/trips';
+  static const vaccination = '/vaccination';
   static const profilePage = '/profile';
   static const settings = '/settings';
   static const productDetails = '/:productId';

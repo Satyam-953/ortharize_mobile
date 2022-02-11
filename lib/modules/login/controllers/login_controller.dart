@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-// import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'dart:io';
 
-// import 'package:webview_flutter/webview_flutter.dart';
-
-///
 import 'package:ortharize_mobile/constants/colors_style.dart';
 import 'package:ortharize_mobile/modules/splash/controllers/splash_service.dart';
 
@@ -18,7 +13,7 @@ class LoginController extends GetxController
         children: const [
           Icon(
             Icons.check_box_outline_blank,
-            color: AppColor.black,
+
           ),
           Text('EMAIL')
         ],
@@ -30,7 +25,7 @@ class LoginController extends GetxController
         children: const [
           Icon(
             Icons.check_box_outline_blank,
-            color: AppColor.black,
+
           ),
           Text('MOBILE')
         ],
@@ -42,7 +37,7 @@ class LoginController extends GetxController
         children: const [
           Icon(
             Icons.check_box_outline_blank,
-            color: AppColor.black,
+
           ),
           Text('OTP')
         ],

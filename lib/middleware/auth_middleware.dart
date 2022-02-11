@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/root/parse_route.dart';
 import 'package:ortharize_mobile/modules/splash/controllers/splash_service.dart';
 
-import '../../services/auth_service.dart';
 import '../../routes/app_pages.dart';
 
 class EnsureAuthMiddleware extends GetMiddleware {
